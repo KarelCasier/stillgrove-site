@@ -53,11 +53,6 @@ body{
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   text-align:center;padding:16px 24px 28px;width:100%;
 }
-.hero::before{
-  content:"";position:absolute;left:50%;top:42%;transform:translate(-50%,-50%);
-  width:min(760px,110vw);height:min(760px,110vw);pointer-events:none;
-  background:radial-gradient(closest-side,rgba(52,211,153,.10),rgba(52,211,153,0) 70%);
-}
 #splash{position:relative;width:min(620px,90vw);margin:0 auto;outline:none}
 #splash:focus-visible{outline:2px solid var(--lime);outline-offset:8px;border-radius:12px}
 #splash svg{display:block;width:100%;height:100%}
@@ -363,7 +358,7 @@ function showIntro(){document.body.classList.add('ready');}
 function hideIntro(){document.body.classList.remove('ready');}
 
 function mount(){
-  const options={layout:layout(),profile:'mobile',emblem:'maple-river',background:true,crest};
+  const options={layout:layout(),profile:'mobile',emblem:'maple-river',background:false,crest};
   host.style.aspectRatio=options.layout==='portrait'?'390 / 844':'844 / 390';
   host.innerHTML=svgAt(reducedMotion.matches?splashDuration:0,{...options,id:'stillgrove'});
   render=bindMotion(host.firstElementChild,options);
