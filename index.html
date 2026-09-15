@@ -361,8 +361,7 @@ const orientation=matchMedia('(orientation: landscape)');
 const crest='broad';
 const splashDuration=mobileDuration;
 const layout=()=>orientation.matches?'landscape':'portrait';
-let frame=0,started=0,render,elapsed=0,loopTimer=0;
-const LOOP_PAUSE=1600;
+let frame=0,started=0,render,elapsed=0;
 
 function showIntro(){document.body.classList.add('ready');}
 function hideIntro(){document.body.classList.remove('ready');}
@@ -381,12 +380,9 @@ function tick(now){
   else{
     frame=0;
     host.dispatchEvent(new CustomEvent('stillgrove:complete',{bubbles:true}));
-    clearTimeout(loopTimer);
-    loopTimer=setTimeout(()=>{if(!document.hidden&&!reducedMotion.matches)play();},LOOP_PAUSE);
   }
 }
 function play(){
-  clearTimeout(loopTimer);
   cancelAnimationFrame(frame);started=0;elapsed=0;render(0);
   frame=requestAnimationFrame(tick);
 }
@@ -395,8 +391,8 @@ host.addEventListener('pointerup',play);
 host.addEventListener('keydown',event=>{
   if(event.code==='Space'||event.code==='Enter'){event.preventDefault();play();}
 });
-orientation.addEventListener('change',()=>{clearTimeout(loopTimer);cancelAnimationFrame(frame);hideIntro();mount();if(!reducedMotion.matches)play();else showIntro();});
-reducedMotion.addEventListener('change',event=>{if(event.matches){clearTimeout(loopTimer);cancelAnimationFrame(frame);frame=0;render(splashDuration);showIntro();}});
+orientation.addEventListener('change',()=>{cancelAnimationFrame(frame);hideIntro();mount();if(!reducedMotion.matches)play();else showIntro();});
+reducedMotion.addEventListener('change',event=>{if(event.matches){cancelAnimationFrame(frame);frame=0;render(splashDuration);showIntro();}});
 document.addEventListener('visibilitychange',()=>{
   if(document.hidden){cancelAnimationFrame(frame);frame=0;render(splashDuration);}
 });
