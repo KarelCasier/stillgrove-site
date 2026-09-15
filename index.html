@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Stillgrove — Coming Soon</title>
+<meta name="description" content="Stillgrove is an independent game studio. Our first release is on its way.">
+<meta name="theme-color" content="#080e0b">
+<meta property="og:title" content="Stillgrove — Coming Soon">
+<meta property="og:description" content="An independent game studio. Our first release is on its way.">
+<meta property="og:type" content="website">
+<meta property="og:video" content="stillgrove-splash.mp4">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23087b50'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;width:100%;height:100%;background:#080e0b}
+  body{
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:#eaf3e7;
+    -webkit-font-smoothing:antialiased;
+    height:100%;height:100dvh;
+    display:flex;flex-direction:column;
+    overflow:hidden;
+    position:relative;
+  }
+  ::selection{background:rgba(221,255,156,.25)}
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+    background:radial-gradient(60vmin 60vmin at 50% 30%, rgba(67,203,123,.10), transparent 70%);
+  }
+  .topbar{
+    position:relative;z-index:2;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:calc(.9rem + env(safe-area-inset-top, 0px)) 1.4rem 0;
+    opacity:0;transform:translateY(-8px);
+    transition:opacity .8s ease .05s, transform .8s ease .05s;
+  }
+  body.ready .topbar{opacity:1;transform:none}
+  .brand{font-family:'Comfortaa',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.34em;text-transform:uppercase;color:#eaf3e7}
+  .pill{
+    font-size:.68rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;
+    color:#ddff9c;border:1px solid rgba(221,255,156,.35);border-radius:999px;
+    padding:.5rem 1rem .5rem 1.25rem;background:rgba(221,255,156,.06);
+  }
+  #splash{
+    position:relative;z-index:1;
+    flex:0 0 auto;
+    height:min(48dvh, 195vw);
+    max-width:96vw;
+    aspect-ratio:390 / 844;
+    margin:auto;
+    -webkit-tap-highlight-color:transparent;touch-action:manipulation;cursor:pointer;
+  }
+  #splash video{display:block;width:100%;height:100%;object-fit:contain;background:#080e0b}
+  #splash:focus-visible{outline:1px solid #b2ed8b;outline-offset:4px}
+  #intro{
+    position:relative;z-index:2;
+    text-align:center;
+    padding:.4rem 1.5rem calc(1.4rem + env(safe-area-inset-bottom, 0px));
+  }
+  #intro>*{opacity:0;transform:translateY(26px);transition:opacity .9s ease, transform .9s cubic-bezier(.2,.7,.2,1)}
+  body.ready #intro>*{opacity:1;transform:none}
+  body.ready #intro>*:nth-child(1){transition-delay:.18s}
+  body.ready #intro>*:nth-child(2){transition-delay:.30s}
+  body.ready #intro>*:nth-child(3){transition-delay:.44s}
+  body.ready #intro>*:nth-child(4){transition-delay:.58s}
+  h1{
+    font-family:'Comfortaa',sans-serif;font-weight:700;
+    font-size:clamp(2.7rem, 11vw, 6.2rem);
+    line-height:1.02;letter-spacing:-.015em;
+    margin:0 0 1rem;color:#eaf3e7;text-wrap:balance;
+  }
+  h1 .grad{
+    background:linear-gradient(100deg,#a6ed80 0%,#36c978 55%,#2bd98a 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .sub{
+    margin:0 auto 1.7rem;max-width:36ch;
+    color:rgba(234,243,231,.66);
+    font-size:clamp(.98rem, 2.6vw, 1.18rem);line-height:1.65;
+  }
+  .sub strong{color:#eaf3e7;font-weight:600}
+  .cta{
+    display:inline-block;
+    font-size:1rem;font-weight:600;letter-spacing:.03em;
+    color:#080e0b;text-decoration:none;
+    background:#ddff9c;border-radius:999px;
+    padding:1rem 2.6rem;
+    box-shadow:0 8px 32px rgba(157,238,114,.22);
+    transition:transform .25s, box-shadow .25s, background .25s;
+  }
+  .cta:hover{transform:translateY(-2px);background:#eaffbe;box-shadow:0 12px 40px rgba(157,238,114,.32)}
+  .cta:focus-visible{outline:2px solid #eaf3e7;outline-offset:3px}
+  .foot{
+    margin:1.5rem 0 0;
+    font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;
+    color:rgba(234,243,231,.38);
+  }
+  .foot .dot{margin:0 .7em;color:rgba(234,243,231,.22)}
+  @media (max-height:640px){
+    #splash{height:min(38dvh, 195vw)}
+    h1{font-size:clamp(2.1rem, 8vw, 3.4rem)}
+    .sub{margin-bottom:1.1rem}
+    .cta{padding:.8rem 2rem}
+    .foot{margin-top:1rem}
+  }
+  @media (prefers-reduced-motion:reduce){
+    #intro>*, .topbar{transition:none}
+  }
+</style>
+</head>
+<body>
+  <header class="topbar">
+    <span class="brand">Stillgrove</span>
+    <span class="pill">Coming soon</span>
+  </header>
+
+  <main id="splash" tabindex="0" aria-label="Stillgrove studio splash animation. Activate to replay.">
+    <video id="splashVideo" src="stillgrove-splash.mp4" poster="stillgrove-splash-poster.png"
+           autoplay muted loop playsinline preload="auto"></video>
+  </main>
+
+  <div id="intro">
+    <h1>Something is <span class="grad">growing.</span></h1>
+    <p class="sub">Stillgrove is an independent game studio. Our first release is on its way to <strong>Google&nbsp;Play</strong>.</p>
+    <div><a class="cta" href="mailto:karel@stillgrove.dev">Get in touch</a></div>
+    <p class="foot">&copy; 2026 Stillgrove<span class="dot">&middot;</span>Tap the animation to replay</p>
+  </div>
+
+  <noscript><div style="position:fixed;inset:0;display:flex;align-items:center;justify-content:center;color:#eaf3e7;font-family:sans-serif">Stillgrove &mdash; Coming soon</div></noscript>
+
+<script>
+(function(){
+  var splash=document.getElementById('splash');
+  var video=document.getElementById('splashVideo');
+  var reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
+  function ready(){document.body.classList.add('ready');}
+  function replay(){
+    if(reduced.matches)return;
+    try{video.currentTime=0;var p=video.play();if(p&&p.catch)p.catch(function(){});}catch(e){}
+  }
+  if(reduced.matches){
+    video.removeAttribute('autoplay');
+    try{video.pause();}catch(e){}
+    ready();
+  }else{
+    video.addEventListener('playing',ready,{once:true});
+    setTimeout(ready,2000);
+  }
+  splash.addEventListener('click',replay);
+  splash.addEventListener('keydown',function(e){
+    if(e.code==='Space'||e.code==='Enter'){e.preventDefault();replay();}
+  });
+})();
+</script>
+</body>
+</html>
