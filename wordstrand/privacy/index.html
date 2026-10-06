@@ -83,7 +83,7 @@ footer p{max-width:68ch;margin:0 auto}
 </header>
 <main id="policy" tabindex="-1">
   <h1>Wordstrand privacy policy</h1>
-  <p class="updated">Last updated <time datetime="2026-10-05">5 October 2026</time></p>
+  <p class="updated">Last updated <time datetime="2026-10-06">6 October 2026</time></p>
   <div class="summary">
     <p><strong>Your save files stay on your device.</strong></p>
     <p>Wordstrand is made by Karel Casier, working as Stillgrove. This policy covers the Android game distributed through Google Play. There is no Wordstrand account or advertising.</p>
@@ -101,7 +101,7 @@ footer p{max-width:68ch;margin:0 auto}
   <section id="play-data" aria-labelledby="play-data-title">
     <h2 id="play-data-title">Progress and settings</h2>
     <p>The game stores your progress, pack-ownership cache and settings in its private storage on your device. Guesses are processed locally. Wordstrand does not upload your save files or deliberately record your guesses in technical reports. Native crash data can include incidental information held in memory, as explained below. Android cloud backup is disabled for the app.</p>
-    <p>Settings such as appearance, keyboard, clues, animation and sound are used to run the game as you choose.</p>
+    <p>Settings such as appearance, keyboard, clues, animation and sound are used to run the game as you choose. When Gameplay analytics is on, the game also sends settings choices and summaries of current settings, as described below.</p>
   </section>
   <section id="purchases" aria-labelledby="purchases-title">
     <h2 id="purchases-title">Google Play purchases</h2>
@@ -129,11 +129,20 @@ footer p{max-width:68ch;margin:0 auto}
   </section>
   <section id="gameplay-analytics" aria-labelledby="gameplay-analytics-title">
     <h2 id="gameplay-analytics-title">Gameplay analytics</h2>
-    <p>Configured builds use <a href="https://www.gameanalytics.com/trust/privacy-notice">GameAnalytics</a> to help us improve difficulty, pacing and hints. Gameplay analytics starts on for new players and versions without a previous analytics choice. A saved Off choice stays off. This switch is separate from Crash reports, and the game works with either or both off.</p>
-    <p>The game sends authored board identifiers, board starts and completions, numeric hint and guess-outcome counts, and bounded time spent in an attempt. It does not send the words you type, answers, clues, drafts, save files, purchase tokens or email contents.</p>
-    <p>The SDK adds a random installation identifier that persists across sessions, random session identifiers, game/build/platform/device and operating-system information, connection type, timestamps and session duration. We do not configure a personal account identifier or collect advertising identifiers. GameAnalytics receives the connection’s IP address and can use it to infer country; the app does not request location access. We disable automatic application-error reporting and health histograms, and do not send screenshots or replays. The SDK can still send fixed technical diagnostics about its own validation or storage failures when analytics is enabled.</p>
+    <p>Configured builds use <a href="https://www.gameanalytics.com/trust/privacy-notice">GameAnalytics</a> to help us improve difficulty, pacing, hints, usability and performance. Gameplay analytics starts on for new players and versions without a previous analytics choice. A saved Off choice stays off. This switch is separate from Crash reports, and the game works with either or both off.</p>
+    <p>While analytics is enabled, the game sends:</p>
+    <ul>
+      <li><strong>Play:</strong> authored board identifiers, numeric word positions within those boards, board starts and completions, counts of attempts and their outcomes, hints and progress, and coarse, bounded active play times.</li>
+      <li><strong>Learning and help:</strong> first-use and tutorial milestones, help openings, repeated hints, and whether and how soon a hint is followed by progress or a solve.</li>
+      <li><strong>Leaving and returning:</strong> how far an unfinished board is solved, whether it was paused or left by navigating away or closing the game, later returns, and cumulative active time across visits and restarts. Active play timing excludes menus, Settings, background time and time with analytics off.</li>
+      <li><strong>Settings:</strong> all player-facing settings choices that are accepted and saved, plus snapshots of current settings. Turning Gameplay analytics off is not recorded as an analytics event.</li>
+      <li><strong>Performance:</strong> bounded measurements of how long the game and boards take to become ready, plus sampled summaries of slow frames.</li>
+    </ul>
+    <p>It does not send the words you type, answers, clues, drafts, save files, purchase tokens or email contents. Numeric word positions identify authored locations in a board; they do not contain the word or clue text.</p>
+    <p>A small, bounded analytics record is kept on your device, separate from your save files, to track observed milestones, cumulative active times and event limits. Gameplay and saving do not depend on that record being available.</p>
+    <p>The SDK adds a random installation identifier that persists across sessions, random session identifiers, game/build/platform/device and operating-system information, connection type, timestamps and session duration. We do not configure a personal account identifier or collect advertising identifiers. GameAnalytics receives the connection’s IP address and can use it to infer country; the app does not request location access. We disable automatic application-error reporting, memory histograms and additional hardware health reporting. Performance summaries are limited to the timing measurements described above. We do not send screenshots, replays or streams of individual frame measurements. The SDK can still send fixed technical diagnostics about its own validation or storage failures when analytics is enabled.</p>
     <p>When enabled, the SDK can queue events on your device while offline and submit them after reconnecting. Old telemetry can be dropped during extended offline use. Gameplay and saving do not depend on event delivery.</p>
-    <p>Turning Gameplay analytics off stops new gameplay collection and requests disabled SDK submission and local collection. It does not erase events already in the SDK’s queue or recall reports already delivered or in flight. A restart with saved Off does not initialize analytics or submit that queue. Turning it on again can send events cached before Off; actions while Off are not replayed by the game. After you switch it on, collection waits for the setting to be saved successfully, including a retry if saving fails.</p>
+    <p>Turning Gameplay analytics off immediately stops all new observations by the game, including Settings choices and performance measurements, and requests disabled SDK submission and local collection. It does not erase events already in the SDK’s queue or recall reports already delivered or in flight. A restart with saved Off does not initialize analytics or submit that queue. Turning it on again can send events cached before Off; actions while Off are not replayed by the game. After you switch it on, collection waits for the setting to be saved successfully, including a retry if saving fails.</p>
   </section>
   <section id="deletion" aria-labelledby="deletion-title">
     <h2 id="deletion-title">Retention, deletion and security</h2>
