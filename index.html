@@ -84,6 +84,13 @@ footer{
   padding:20px 16px calc(20px + env(safe-area-inset-bottom));
   font-size:.62rem;letter-spacing:.32em;color:var(--faint);
 }
+footer .privacy-link{
+  display:inline-block;margin-top:14px;padding:8px;
+  color:var(--muted);font-size:.75rem;letter-spacing:normal;
+  text-underline-offset:4px;
+}
+footer .privacy-link:hover{color:var(--ink)}
+footer .privacy-link:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
 @media (max-width:640px){
   #splash{width:min(300px,78vw)}
   .hero{justify-content:flex-start;padding-top:8vh}
@@ -106,7 +113,10 @@ footer{
     <p class="soon">Coming soon</p>
     <a class="cta" href="mailto:karel@stillgrove.dev">Get in touch</a>
   </main>
-  <footer>&copy; 2026 STILLGROVE &nbsp;&middot;&nbsp; TAP THE LOGO TO REPLAY</footer>
+  <footer>
+    &copy; 2026 STILLGROVE &nbsp;&middot;&nbsp; TAP THE LOGO TO REPLAY<br>
+    <a class="privacy-link" href="/wordstrand/privacy/">Wordstrand privacy policy</a>
+  </footer>
   <noscript><p style="text-align:center;color:#8f998c;padding:12px">Stillgrove is an independent game studio. Coming soon.</p></noscript>
   <script>
   (function(){
