@@ -93,7 +93,9 @@ footer p{max-width:68ch;margin:0 auto}
     <ul>
       <li><a href="#play-data">Play data</a></li>
       <li><a href="#purchases">Purchases</a></li>
+      <li><a href="#diagnostics">Crash reports</a></li>
       <li><a href="#gameplay-analytics">Gameplay analytics</a></li>
+      <li><a href="#privacy-choices">Your choices</a></li>
       <li><a href="#deletion">Retention and deletion</a></li>
       <li><a href="#contact">Privacy contact</a></li>
     </ul>
@@ -101,12 +103,14 @@ footer p{max-width:68ch;margin:0 auto}
   <section id="play-data" aria-labelledby="play-data-title">
     <h2 id="play-data-title">Progress and settings</h2>
     <p>The game stores your progress, pack-ownership cache and settings in its private storage on your device. Guesses are processed locally. Wordstrand does not upload your save files or deliberately record your guesses in technical reports. Native crash data can include incidental information held in memory, as explained below. Android cloud backup is disabled for the app.</p>
-    <p>Settings such as appearance, keyboard, clues, animation and sound are used to run the game as you choose. When Gameplay analytics is on, the game also sends settings choices and summaries of current settings, as described below.</p>
+    <p>Settings such as colour, appearance, text style, keyboard, animation and sound are used to run the game as you choose. When Gameplay analytics is on, the game also sends settings choices and summaries of current settings, as described below.</p>
   </section>
   <section id="purchases" aria-labelledby="purchases-title">
     <h2 id="purchases-title">Google Play purchases</h2>
-    <p>Optional world packs are permanent purchases through Google Play when available. Google handles payment using your Google Play account. Wordstrand does not receive your card or bank details.</p>
-    <p>The app reads purchase records and uses purchase tokens to confirm and acknowledge purchases, or to restore pack access. It keeps only the confirmed pack-ownership flags in local storage. It does not save purchase tokens, order numbers, signatures or your Google account details in your game save.</p>
+    <p>Optional world packs, including <strong>Games Night</strong> and <strong>Hot Metal</strong>, are permanent, one-time purchases through Google Play when available. The campaign and each pack's preview board remain free. These packs do not require a subscription. Google handles payment using your Google Play account. Wordstrand does not receive your card or bank details.</p>
+    <p>The app reads product identifiers, purchase state and acknowledgement status, and uses purchase tokens to confirm and acknowledge completed purchases or restore pack access. Pending, cancelled or failed payments do not unlock a pack. It keeps only confirmed pack-ownership flags in local storage. It does not save purchase tokens, order numbers, signatures or your Google account details in your game save.</p>
+    <p>When connected, the app can check ownership with Google Play at startup, when you return to the app, or when you choose Restore purchases. A successful check refreshes cached ownership, including removing access if Google Play reports that ownership was revoked. Already-owned packs remain playable offline using the local cache. After clearing app storage or reinstalling, Restore purchases needs a connection and the Google Play account used to buy the packs; it restores pack access, not your played boards.</p>
+    <p>Google may make order and buyer information available to Stillgrove in Play Console, including the order reference, purchased product, amount, order history and status, and contact or regional details where provided. We use this information for purchase support, refunds and financial record keeping. It is separate from gameplay analytics and is not added to your game save.</p>
     <p>Google Play and its billing software process purchase information and technical diagnostics under <a href="https://policies.google.com/privacy">Google’s privacy policy</a>. Google’s billing software includes a component that sends diagnostic information to Google’s logging service. Wordstrand does not pass your play progress, guesses or settings to that software.</p>
   </section>
   <section aria-labelledby="permissions-title">
@@ -118,7 +122,7 @@ footer p{max-width:68ch;margin:0 auto}
     </ul>
     <p>Wordstrand does not request access to your location, contacts, shared files, camera or microphone.</p>
   </section>
-  <section aria-labelledby="diagnostics-title">
+  <section id="diagnostics" aria-labelledby="diagnostics-title">
     <h2 id="diagnostics-title">Diagnostics and bug reports</h2>
     <p>In builds configured for Crash reports, Wordstrand sends technical error and crash reports to <a href="https://sentry.io/privacy/">Sentry</a>, our diagnostic service provider, to help us find and fix problems. This setting starts on for new players and after an update from a version without a reporting choice. An existing Off choice stays off. You can turn Crash reports off in Settings, and the game works with reporting off. Builds without a configured reporting service do not send these reports.</p>
     <p>When enabled, reports can include the game version, platform, operating-system and device details, technical error stacks, the kind of screen open and random technical session or installation identifiers. We do not add your name, email, advertising ID or a player profile. The network services involved receive connection information needed to deliver a report, such as an IP address; the game does not add your IP address to the report. Sentry’s project is configured to remove IP addresses and inferred geography from new events.</p>
@@ -135,22 +139,28 @@ footer p{max-width:68ch;margin:0 auto}
       <li><strong>Play:</strong> authored board identifiers, numeric word positions within those boards, board starts and completions, counts of attempts and their outcomes, hints and progress, and coarse, bounded active play times.</li>
       <li><strong>Learning and help:</strong> first-use and tutorial milestones, help openings, repeated hints, and whether and how soon a hint is followed by progress or a solve.</li>
       <li><strong>Leaving and returning:</strong> how far an unfinished board is solved, whether it was paused or left by navigating away or closing the game, later returns, and cumulative active time across visits and restarts. Active play timing excludes menus, Settings, background time and time with analytics off.</li>
-      <li><strong>Settings:</strong> all player-facing settings choices that are accepted and saved, plus snapshots of current settings. Turning Gameplay analytics off is not recorded as an analytics event.</li>
+      <li><strong>Settings:</strong> colour theme, system/light/dark appearance, text style, keyboard choice, automatic advance to the next word, animation speed, music and effects volumes, mute, background ink, tips, Crash reports, and Gameplay analytics being on. This includes accepted and saved changes, plus snapshots of current settings. Turning Gameplay analytics off is not recorded as an analytics event.</li>
+      <li><strong>Menu actions:</strong> openings of Settings and its choice menus, help and credits, taps on Contact, Report a bug or Privacy policy, save retries, board restarts and replays. These are fixed action categories and counts; they do not contain an email draft, message or website browsing history.</li>
       <li><strong>Performance:</strong> bounded measurements of how long the game and boards take to become ready, plus sampled summaries of slow frames.</li>
     </ul>
-    <p>It does not send the words you type, answers, clues, drafts, save files, purchase tokens or email contents. Numeric word positions identify authored locations in a board; they do not contain the word or clue text.</p>
+    <p>It does not send the words you type, answers, clues, drafts, save files, purchase records, purchase tokens, spending amounts or email contents. Numeric word positions identify authored locations in a board; they do not contain the word or clue text.</p>
     <p>A small, bounded analytics record is kept on your device, separate from your save files, to track observed milestones, cumulative active times and event limits. Gameplay and saving do not depend on that record being available.</p>
     <p>The SDK adds a random installation identifier that persists across sessions, random session identifiers, game/build/platform/device and operating-system information, connection type, timestamps and session duration. We do not configure a personal account identifier or collect advertising identifiers. GameAnalytics receives the connection’s IP address and can use it to infer country; the app does not request location access. We disable automatic application-error reporting, memory histograms and additional hardware health reporting. Performance summaries are limited to the timing measurements described above. We do not send screenshots, replays or streams of individual frame measurements. The SDK can still send fixed technical diagnostics about its own validation or storage failures when analytics is enabled.</p>
     <p>When enabled, the SDK can queue events on your device while offline and submit them after reconnecting. Old telemetry can be dropped during extended offline use. Gameplay and saving do not depend on event delivery.</p>
     <p>Turning Gameplay analytics off immediately stops all new observations by the game, including Settings choices and performance measurements, and requests disabled SDK submission and local collection. It does not erase events already in the SDK’s queue or recall reports already delivered or in flight. A restart with saved Off does not initialize analytics or submit that queue. Turning it on again can send events cached before Off; actions while Off are not replayed by the game. After you switch it on, collection waits for the setting to be saved successfully, including a retry if saving fails.</p>
   </section>
+  <section id="privacy-choices" aria-labelledby="privacy-choices-title">
+    <h2 id="privacy-choices-title">Your privacy choices</h2>
+    <p>Open Settings to turn <strong>Crash reports</strong> and <strong>Gameplay analytics</strong> on or off independently, or to open this policy. Both start on when no earlier choice exists; saved Off choices remain off after updates. The collection and offline-queue effects of each switch are described above.</p>
+    <p>You can play the free campaign and owned packs, buy a pack, and restore purchases with both optional services off. Google Play still processes the purchase and billing information needed when you buy or restore a pack.</p>
+  </section>
   <section id="deletion" aria-labelledby="deletion-title">
     <h2 id="deletion-title">Retention, deletion and security</h2>
-    <p>Local progress and settings remain until you clear the app’s storage in Android settings or uninstall it. Doing so removes your local game data, including the ownership cache. Restore purchases can recover pack access through Google Play; it does not restore your played boards.</p>
+    <p>Local progress and settings remain until you clear the app’s storage in Android settings or uninstall it. Doing so removes your local game data, including the ownership cache, local analytics record and cached telemetry. Restore purchases can recover pack access through Google Play; it does not restore your played boards.</p>
     <p>We keep support correspondence only as long as needed to respond, resolve the enquiry and meet applicable legal obligations. You can request deletion of correspondence by emailing <a href="mailto:support@stillgrove.dev">support@stillgrove.dev</a>. There is no Wordstrand player account to delete.</p>
     <p>Sentry error reports can be retained for up to 90 days during the initial service trial, then 30 days on the free Developer plan. We do not keep a separate archive of these reports. To request deletion, email <a href="mailto:support@stillgrove.dev">support@stillgrove.dev</a> with the approximate report date, game version and device model so we can try to locate the report. Because reports have no named player account, we may be unable to identify a particular report from an email address alone. Turning reporting off or uninstalling does not delete reports already delivered to Sentry.</p>
     <p>GameAnalytics retention and available detail vary by event type and age under its <a href="https://docs.gameanalytics.com/event-tracking-and-integrations/data-retention-and-limits/data-retention-practices/">published retention practices</a>. A short dashboard lookback does not mean that all underlying data has been deleted. We do not export or keep a separate archive of these analytics. Contact <a href="mailto:support@stillgrove.dev">support@stillgrove.dev</a> about access or deletion; because the installation identifier is random, we may need information to identify your records. Switching analytics off or uninstalling does not remove previously delivered data.</p>
-    <p>Uninstalling does not delete Google’s purchase or diagnostic records. Google manages their retention and deletion under its own privacy policy and account controls.</p>
+    <p>Uninstalling does not delete Google’s purchase or diagnostic records. Google manages their retention and deletion under its own privacy policy and account controls. Any purchase-support or financial records we keep are retained only as needed for those purposes and applicable legal obligations; deletion requests may be limited by those obligations.</p>
     <p>Game files use Android’s private app storage. Purchases are handled by the Google Play service. Email is delivered by the email providers involved in your message. This policy page is served over HTTPS.</p>
   </section>
   <section aria-labelledby="children-title">
