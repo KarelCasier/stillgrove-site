@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Wordstrand Privacy Policy — Stillgrove</title>
-<meta name="description" content="How Wordstrand handles local progress, Google Play purchases, diagnostics and support messages. Privacy contact: karel@stillgrove.dev.">
+<meta name="description" content="How Wordstrand handles local progress, Google Play purchases, crash reports, gameplay analytics and support messages. Privacy contact: support@stillgrove.dev.">
 <meta name="theme-color" content="#131a15">
 <link rel="canonical" href="https://stillgrove.dev/wordstrand/privacy/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -79,20 +79,21 @@ footer p{max-width:68ch;margin:0 auto}
 <a class="skip-link" href="#policy">Skip to privacy policy</a>
 <header class="top">
   <a class="brand" href="/" aria-label="Stillgrove home"><img src="/brand/stillgrove-horizontal-on-dark.svg" width="156" height="39" alt="Stillgrove"></a>
-  <a class="contact-link" href="mailto:karel@stillgrove.dev">Contact</a>
+  <a class="contact-link" href="mailto:support@stillgrove.dev">Contact</a>
 </header>
 <main id="policy" tabindex="-1">
   <h1>Wordstrand privacy policy</h1>
   <p class="updated">Last updated <time datetime="2026-10-05">5 October 2026</time></p>
   <div class="summary">
-    <p><strong>Your play progress stays on your device.</strong></p>
-    <p>Wordstrand is made by Karel Casier, working as Stillgrove. This policy covers the Android game distributed through Google Play. There is no Wordstrand account, no advertising and no developer-operated gameplay analytics.</p>
-    <p>The free campaign and already-owned packs work offline. Optional purchases and Restore purchases use Google Play and need a connection. Builds configured for Crash reports can send technical reports to Sentry. Reporting starts on if you have not already chosen a setting; you can turn it off in Settings.</p>
+    <p><strong>Your save files stay on your device.</strong></p>
+    <p>Wordstrand is made by Karel Casier, working as Stillgrove. This policy covers the Android game distributed through Google Play. There is no Wordstrand account or advertising.</p>
+    <p>The free campaign and already-owned packs work offline. Optional purchases and Restore purchases use Google Play and need a connection. Configured builds use Sentry for crash reports and GameAnalytics for gameplay statistics. Both settings start on when there is no previous choice; an existing Off choice stays off. You can turn either off separately in Settings, and continue playing.</p>
   </div>
   <nav aria-label="On this page">
     <ul>
       <li><a href="#play-data">Play data</a></li>
       <li><a href="#purchases">Purchases</a></li>
+      <li><a href="#gameplay-analytics">Gameplay analytics</a></li>
       <li><a href="#deletion">Retention and deletion</a></li>
       <li><a href="#contact">Privacy contact</a></li>
     </ul>
@@ -113,24 +114,33 @@ footer p{max-width:68ch;margin:0 auto}
     <ul>
       <li><strong>Vibration:</strong> provides touch feedback during play and follows your phone’s touch-feedback setting.</li>
       <li><strong>Google Play billing:</strong> lets you buy and restore packs.</li>
-      <li><strong>Internet and network state:</strong> support Google Play purchases and optional crash-report delivery. Free levels and cached owned packs remain playable offline.</li>
+      <li><strong>Internet and network state:</strong> support Google Play purchases, crash reports and gameplay analytics when enabled. Free levels and cached owned packs remain playable offline.</li>
     </ul>
     <p>Wordstrand does not request access to your location, contacts, shared files, camera or microphone.</p>
   </section>
   <section aria-labelledby="diagnostics-title">
     <h2 id="diagnostics-title">Diagnostics and bug reports</h2>
     <p>In builds configured for Crash reports, Wordstrand sends technical error and crash reports to <a href="https://sentry.io/privacy/">Sentry</a>, our diagnostic service provider, to help us find and fix problems. This setting starts on for new players and after an update from a version without a reporting choice. An existing Off choice stays off. You can turn Crash reports off in Settings, and the game works with reporting off. Builds without a configured reporting service do not send these reports.</p>
-    <p>When enabled, reports can include the game version, platform, operating-system and device details, technical error stacks, the kind of screen open and random technical session or installation identifiers. We do not add your name, email, advertising ID or a player profile. The network services involved receive connection information needed to deliver a report, such as an IP address; the game does not add your IP address to the report.</p>
-    <p>We disable log-file, screenshot and scene-tree attachments, local variables, source-code context, gameplay analytics and custom performance tracing. Ordinary error messages are replaced with fixed technical descriptions. Technical source and module paths may include an installation folder or OS username. We do not deliberately attach guesses, save files, email drafts or purchase tokens. A native crash report may nevertheless contain a snapshot of thread-stack memory, including incidental data present in memory at the crash. Script-level filtering cannot remove that data. We keep Sentry’s optional storage of raw minidumps disabled.</p>
+    <p>When enabled, reports can include the game version, platform, operating-system and device details, technical error stacks, the kind of screen open and random technical session or installation identifiers. We do not add your name, email, advertising ID or a player profile. The network services involved receive connection information needed to deliver a report, such as an IP address; the game does not add your IP address to the report. Sentry’s project is configured to remove IP addresses and inferred geography from new events.</p>
+    <p>We disable log-file, screenshot and scene-tree attachments, local variables, source-code context and custom performance tracing. Gameplay statistics are handled separately, as described below. Ordinary error messages are replaced with fixed technical descriptions. Technical source and module paths may include an installation folder or OS username. We do not deliberately attach guesses, save files, email drafts or purchase tokens. A native crash report may nevertheless contain a snapshot of thread-stack memory, including incidental data present in memory at the crash. Script-level filtering cannot remove that data. We keep Sentry’s optional storage of raw minidumps disabled.</p>
     <p>Turning Crash reports off stops new collection and removes queued reports from the app’s diagnostic cache. Reports already delivered or being transmitted cannot be recalled by that switch. Your choice is saved with the game’s normal settings; if a save fails, the app shows its retry notice. An older build without this setting does not use this Sentry integration.</p>
     <p>Local recovery messages and diagnostic logs stay on your device. Google Play and Android may separately process crash and device diagnostics according to your device settings and <a href="https://policies.google.com/privacy">Google’s privacy policy</a>.</p>
     <p>Report a bug opens your email app with a draft that includes platform and game-version information. Nothing is emailed to Stillgrove until you choose to send it. If you email us, we receive your email address and the information you choose to include. We use it to respond and investigate your request. Please do not include passwords, payment details or other sensitive information.</p>
   </section>
+  <section id="gameplay-analytics" aria-labelledby="gameplay-analytics-title">
+    <h2 id="gameplay-analytics-title">Gameplay analytics</h2>
+    <p>Configured builds use <a href="https://www.gameanalytics.com/trust/privacy-notice">GameAnalytics</a> to help us improve difficulty, pacing and hints. Gameplay analytics starts on for new players and versions without a previous analytics choice. A saved Off choice stays off. This switch is separate from Crash reports, and the game works with either or both off.</p>
+    <p>The game sends authored board identifiers, board starts and completions, numeric hint and guess-outcome counts, and bounded time spent in an attempt. It does not send the words you type, answers, clues, drafts, save files, purchase tokens or email contents.</p>
+    <p>The SDK adds a random installation identifier that persists across sessions, random session identifiers, game/build/platform/device and operating-system information, connection type, timestamps and session duration. We do not configure a personal account identifier or collect advertising identifiers. GameAnalytics receives the connection’s IP address and can use it to infer country; the app does not request location access. We disable automatic application-error reporting and health histograms, and do not send screenshots or replays. The SDK can still send fixed technical diagnostics about its own validation or storage failures when analytics is enabled.</p>
+    <p>When enabled, the SDK can queue events on your device while offline and submit them after reconnecting. Old telemetry can be dropped during extended offline use. Gameplay and saving do not depend on event delivery.</p>
+    <p>Turning Gameplay analytics off stops new gameplay collection and requests disabled SDK submission and local collection. It does not erase events already in the SDK’s queue or recall reports already delivered or in flight. A restart with saved Off does not initialize analytics or submit that queue. Turning it on again can send events cached before Off; actions while Off are not replayed by the game. After you switch it on, collection waits for the setting to be saved successfully, including a retry if saving fails.</p>
+  </section>
   <section id="deletion" aria-labelledby="deletion-title">
     <h2 id="deletion-title">Retention, deletion and security</h2>
     <p>Local progress and settings remain until you clear the app’s storage in Android settings or uninstall it. Doing so removes your local game data, including the ownership cache. Restore purchases can recover pack access through Google Play; it does not restore your played boards.</p>
-    <p>We keep support correspondence only as long as needed to respond, resolve the enquiry and meet applicable legal obligations. You can request deletion of correspondence by emailing <a href="mailto:karel@stillgrove.dev">karel@stillgrove.dev</a>. There is no Wordstrand player account to delete.</p>
-    <p>Optional Sentry error reports use a 30-day retention period. We do not keep a separate archive of these reports. To request deletion, email <a href="mailto:karel@stillgrove.dev">karel@stillgrove.dev</a> with the approximate report date, game version and device model so we can try to locate the report. Because reports have no named player account, we may be unable to identify a particular report from an email address alone. Turning reporting off or uninstalling does not delete reports already delivered to Sentry.</p>
+    <p>We keep support correspondence only as long as needed to respond, resolve the enquiry and meet applicable legal obligations. You can request deletion of correspondence by emailing <a href="mailto:support@stillgrove.dev">support@stillgrove.dev</a>. There is no Wordstrand player account to delete.</p>
+    <p>Sentry error reports can be retained for up to 90 days during the initial service trial, then 30 days on the free Developer plan. We do not keep a separate archive of these reports. To request deletion, email <a href="mailto:support@stillgrove.dev">support@stillgrove.dev</a> with the approximate report date, game version and device model so we can try to locate the report. Because reports have no named player account, we may be unable to identify a particular report from an email address alone. Turning reporting off or uninstalling does not delete reports already delivered to Sentry.</p>
+    <p>GameAnalytics retention and available detail vary by event type and age under its <a href="https://docs.gameanalytics.com/event-tracking-and-integrations/data-retention-and-limits/data-retention-practices/">published retention practices</a>. A short dashboard lookback does not mean that all underlying data has been deleted. We do not export or keep a separate archive of these analytics. Contact <a href="mailto:support@stillgrove.dev">support@stillgrove.dev</a> about access or deletion; because the installation identifier is random, we may need information to identify your records. Switching analytics off or uninstalling does not remove previously delivered data.</p>
     <p>Uninstalling does not delete Google’s purchase or diagnostic records. Google manages their retention and deletion under its own privacy policy and account controls.</p>
     <p>Game files use Android’s private app storage. Purchases are handled by the Google Play service. Email is delivered by the email providers involved in your message. This policy page is served over HTTPS.</p>
   </section>
@@ -148,7 +158,7 @@ footer p{max-width:68ch;margin:0 auto}
   </section>
   <section id="contact" aria-labelledby="contact-title">
     <h2 id="contact-title">Privacy contact</h2>
-    <p>Karel Casier (Stillgrove)<br><a href="mailto:karel@stillgrove.dev">karel@stillgrove.dev</a></p>
+    <p>Karel Casier (Stillgrove)<br><a href="mailto:support@stillgrove.dev">support@stillgrove.dev</a></p>
   </section>
 </main>
 <footer><p><a href="/">Stillgrove home</a> · Wordstrand privacy policy</p></footer>
